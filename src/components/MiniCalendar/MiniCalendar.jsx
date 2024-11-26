@@ -52,13 +52,20 @@ const MiniCalendar = () => {
 
     // 添加当前月的日期
     for (let i = 1; i <= daysInMonth; i++) {
+      const isToday = today.getDate() === i && 
+                     today.getMonth() === currentDate.getMonth() && 
+                     today.getFullYear() === currentDate.getFullYear();
+      
+      const isSelected = selectedDate && 
+                        selectedDate.getDate() === i && 
+                        selectedDate.getMonth() === currentDate.getMonth() &&
+                        selectedDate.getFullYear() === currentDate.getFullYear();
+      
       days.push({
         day: i,
         isCurrentMonth: true,
-        isToday: 
-          today.getDate() === i && 
-          today.getMonth() === currentDate.getMonth() && 
-          today.getFullYear() === currentDate.getFullYear()
+        isToday,
+        isSelected
       });
     }
 
@@ -68,7 +75,8 @@ const MiniCalendar = () => {
       days.push({
         day: i,
         isCurrentMonth: false,
-        isToday: false
+        isToday: false,
+        isSelected: false
       });
     }
 
@@ -78,7 +86,7 @@ const MiniCalendar = () => {
   const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
 
   return (
-    <div className="w-full max-w-md p-6 mx-auto bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg 
+    <div className="w-full max-w-md p-4 sm:p-6 mx-auto bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg 
                     transition-all duration-300 hover:-translate-y-1 
                     border border-white/20">
       <div className="flex items-center justify-between mb-6">
@@ -90,7 +98,7 @@ const MiniCalendar = () => {
         >
           &lt;
         </button>
-        <h2 className="text-xl font-semibold text-gray-800">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
           {currentDate.getFullYear()}年 {currentDate.getMonth() + 1}月
         </h2>
         <button 
@@ -119,13 +127,13 @@ const MiniCalendar = () => {
             key={index}
             onClick={() => handleDateSelect(item.day, item.isCurrentMonth)}
             className={`
-              p-3 text-center rounded-lg cursor-pointer
+              p-2 sm:p-3 text-center rounded-lg cursor-pointer
+              text-sm sm:text-base
               transition-all duration-200 hover:scale-110 hover:z-10
               animate-fade-in
               ${!item.isCurrentMonth ? 'text-gray-400 opacity-60' : 'text-gray-700'}
               ${item.isToday ? 'ring-2 ring-blue-400 font-bold' : ''}
-              ${selectedDate && selectedDate.getDate() === item.day && 
-                selectedDate.getMonth() === currentDate.getMonth()
+              ${item.isSelected
                 ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg'
                 : 'hover:bg-gray-100/80'}
             `}

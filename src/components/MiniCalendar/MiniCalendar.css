@@ -1,0 +1,129 @@
+.mini-calendar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.mini-calendar:hover {
+  transform: translateY(-5px);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.calendar-header h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.calendar-header button {
+  background: rgba(0, 123, 255, 0.8);
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  font-size: 1.1rem;
+}
+
+.calendar-header button:hover {
+  background: rgba(0, 86, 179, 0.9);
+  transform: scale(1.05);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 10px;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: 600;
+  padding: 12px;
+  background: rgba(248, 249, 250, 0.7);
+  border-radius: 10px;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.calendar-day:hover {
+  background: rgba(233, 236, 239, 0.8);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.other-month {
+  color: #adb5bd;
+  opacity: 0.6;
+}
+
+.selected {
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.selected:hover {
+  background: linear-gradient(145deg, #0056b3, #004494);
+}
+
+.selected-date {
+  margin-top: 25px;
+  text-align: center;
+  color: #2c3e50;
+  padding: 15px;
+  background: rgba(248, 249, 250, 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+/* 添加今天日期的特殊样式 */
+.today {
+  border: 2px solid rgba(0, 123, 255, 0.5);
+  font-weight: bold;
+}
+
+/* 添加动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-day {
+  animation: fadeIn 0.3s ease-out;
+} 

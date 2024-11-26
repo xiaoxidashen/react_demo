@@ -1,8 +1,16 @@
-# React + Vite
+# React Mini Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个简单的 React 迷你日历组件。
 
-Currently, two official plugins are available:
+## 效果展示
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Mini Calendar 效果图](img.png)
+
+## 功能特点
+
+- 显示当前月份日历
+- 支持选择日期
+- 高亮显示当前日期
+- 简洁美观的界面设计
+
+## 使用方法
